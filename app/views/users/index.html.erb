@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<%= link_to '新規登録', new_user_path %></br>
+
+<%= link_to 'ログイン', top_login_move_path %>
+
+
+<h2>登録ユーザ</h2>
+
+<% @users.each do |user| %>
+    <div>
+        <%= user.uid %>
+        <%= link_to '削除', "/users/#{user.id}", data: {turbo_method: :delete} %>
+    </div>
+<% end %>

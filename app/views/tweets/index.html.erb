@@ -1,0 +1,22 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<% @tweets.each do |tweet| %>
+
+    <div>
+        <p>
+            <div>
+                <%= tweet.message %>
+                <%=link_to '削除', "/tweets/#{tweet.id}", data: { turbo_method: :delete } %>
+                <%= link_to 'いいね', likes_create_path(tweet_id: tweet.id), method: :post %><%= tweet.likes.count %>
+                <%= link_to 'いいね削除', likes_destroy_path(tweet_id: tweet.id), method: :delete %>
+            </div>
+        </p>
+    </div>
+    
+<% end %>
+
+<%=link_to 'ツイートする', new_tweet_path %>
+
+<%=link_to 'ログアウト', top_logout_path %>

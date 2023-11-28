@@ -1,0 +1,13 @@
+<h2>新規会員登録</h2>
+<%= form_tag '/users/create', method: :post, data: { turbo:false } do%>
+    <%= label_tag :uid, 'ユーザーID' %>
+    <%= text_field_tag :uid %></br>
+    <%= label_tag :password, 'パスワード' %>
+    <%= password_field_tag :password %></br>
+    <%= label_tag :password_confirmation, 'パスワード(確認)' %>
+    <%= password_field_tag :password_confirmation %></br>
+    
+    <%= submit_tag '登録' %>
+    
+<% end %>
+
